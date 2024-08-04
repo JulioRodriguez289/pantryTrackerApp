@@ -67,23 +67,39 @@ export default function Home() {
   const handleClose = () => setOpen(false);
 
   return (
+
+       <Box 
+       
+       width="350vw"
+       height="250vh"
+     
+     
+     
+    
+      backgroundColor ="pink"
+      gap={2}>
+
+
+
+
     <Box
-      width="100vw"
-      height="100vh"
+      width="250vw"
+      height="250vh"
       display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
-      backgroundColor ="pink"
+      backgroundColor =""
       gap={2}
-    >
+    >  
+  
       <Modal open={open} onClose={handleClose}>
         <Box
           position="absolute"
           top="50%"
           left="50%"
           width={400}
-          bgcolor="white"
+          backgroundColor="white"
           border="2px solid #000"
           boxShadow={24}
           p={4}
@@ -125,18 +141,68 @@ export default function Home() {
         <Box
           width="800px"
           height="100px"
-          bgcolor="#ADD8E6"
+          bgcolor="#f1d302"
           display="flex"
           alignItems="center"
           justifyContent="center"
         >
-          <Typography variant="h2" color="#333">
+          <Typography variant="h2" color="#">
             Inventory Items
           </Typography>
         </Box>
       
 
-      <Stack width="800px" height="300px" spacing={2} overflow="auto">
+      <Stack width="800px" height="300px" spacing={1} overflow="auto">
+
+
+
+      <Box> 
+
+      
+          
+          
+      <Box
+            key={name}
+            width="50%"
+            minHeight="150px"
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            backgroundColor="#"
+            padding={2}
+          >     
+          
+          <Typography
+          variant="h5"
+          color="Black"
+          textAlign="center"
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          >
+           Item Name
+          </Typography>
+
+          <Typography
+          variant="h5"
+          color="Black"
+          textAlign="center"
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          >
+           Quantity 
+          </Typography>
+
+
+          </Box>  
+
+         
+
+
+
+
+</Box>
         {inventory.map(({ name, quantity }) => (
           <Box
             key={name}
@@ -145,12 +211,16 @@ export default function Home() {
             display="flex"
             alignItems="center"
             justifyContent="space-between"
-            backgroundColor="#f0f0f0"
-            padding={5}
+            backgroundColor="#"
+            padding={3}
           >
+            
+
+
+
             <Typography
               variant="h3"
-              color="#333"
+              color="black"
               textAlign="center"
             >
               {name.charAt(0).toUpperCase() + name.slice(1)}
@@ -158,18 +228,31 @@ export default function Home() {
 
             <Typography
               variant="h3"
-              color="#333"
+              
               textAlign="center"
             >
                {quantity}
             </Typography>
+            <Button variant = "contained" onClick={ () => addItem(name)
+
+            }> 
+            +
+            </Button>
             <Button variant = "contained" onClick={() => removeItems(name)}>
-              Remove Item
+              -
             </Button>
           </Box>
         ))}
       </Stack>
     </Box>
+
+
     </Box>
+
+
+   
+
+
+   </Box>
   );
 }
